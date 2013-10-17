@@ -1,0 +1,17 @@
+apply plugin: 'java'
+defaultTasks 'clean', 'build'
+buildDir 'target'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'org.apache.lucene:lucene-core:3.+'
+	runtime 'org.apache.lucene:lucene-core:3.+'
+}
+
+jar {
+    dependsOn configurations.runtime
+    from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } } 
+}
