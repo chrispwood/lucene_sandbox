@@ -1,0 +1,6 @@
+*/target/*
+*/.gradle
+*.class
+.DS_Store
+*/output/*
+
